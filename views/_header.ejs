@@ -1,0 +1,41 @@
+<div id="header-body" style="background-image: linear-gradient(rgb(31, 226, 252),rgb(0, 187, 78));">
+    
+    <h1 id="pagetitle">Placement Cell</h1> 
+
+    
+    <i class="fas fa-home"></i>
+    <i class="fab fa-battle-net"></i>
+    <i class="fas fa-bell"></i>
+    <ul>
+        <!-- <% if (locals.user){ %> -->
+            <li>
+                <button type="button">
+                    <a href="/user/profile">
+                        <%= user.name %>
+                    </a>
+                </button>
+            </li>
+            <li>
+                <button type="button">
+                    <a href="/user/signOut">Sign Out</a>
+                </button>
+            </li>
+        <!-- <% }else{ %> -->
+            <button type="button">
+                <li>
+                    <a href="/user/signIn">Sign In</a>
+                </li>
+            </button>
+            <button type="button">
+                <li>
+                    <a href="/user/signUp">Sign Up</a>
+                </li>
+            </button>
+
+
+        <!-- <% } %> -->
+    </ul>
+
+    <input type="text" placeholder="type here to search">
+    <button><i class="fas fa-search"></i> Search</button>
+</div>
