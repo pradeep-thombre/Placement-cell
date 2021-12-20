@@ -1,21 +1,21 @@
 
 
 
-<h1>Schedule Interview</h1>
 
 <form action="/interview/create" method="POST">
+    <h1>Schedule Interview</h1>
     <input type="text" name="role" placeholder="Role*" required>
     <select name="student" >
         <%for(let ninja of student){%>
             <option value="<%= ninja.name%>"><%= ninja.name %></option>
         <%}%>
     </select>
-    <select name="comapny" >
+    <select name="company" >
         <%for(let org of company){%>
             <option value="<%= org.name%>"><%= org.name %></option>
         <%}%>
     </select>
-    <input type="email" name="email" placeholder="Email*" required>
-    <button value="scheduleInterview">Schedule</button>
+    <input type="datetime-local" name="date" placeholder="Interview on*" required>
+    <button value="scheduleInterview" class="submit">Schedule</button>
+    <a href="/">Back</a>
 </form>
-<a href="/">Back</a>

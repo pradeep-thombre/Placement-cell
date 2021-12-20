@@ -1,0 +1,14 @@
+<h1>Scheduled Interviews</h1>
+
+
+
+<div class="flex">
+    <%for(let interview of interviews){%>
+        <div class="item">
+            <h1><%= interview.role %></h1>
+            <p><%= interview.student %></p>
+            <p><%= interview.company %></p>
+            <p><%= interview.date %></p>
+        </div>
+    <%}%>
+</div>

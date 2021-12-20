@@ -1,41 +1,27 @@
 
 
-<div id="header-body" style="background-image: linear-gradient(rgb(31, 226, 252),rgb(0, 187, 78));">
+<div id="header-body" style="border-bottom: 1px solid white ; box-shadow:  0 0 2px 2px rgba(236, 239, 243, 0.57);">
     
+    <img src="/images/logo.png" alt="">
     <h1 id="pagetitle">Placement Cell</h1> 
-
-    <a href="/"><i class="fas fa-home"></i></a>
-    <i class="fas fa-battle-net"></i>
-    <i class="fas fa-bell"></i>
-    <ul>
         <% if (_locals.user){ %>
-            <li>
                 <button type="button">
                     <a href="/users/profile">
                         <%= _locals.user.name %>
                     </a>
                 </button>
-            </li>
-            <li>
                 <button type="button">
                     <a href="/users/signOut">Sign Out</a>
                 </button>
-            </li>
         <% }else{ %>
             <button type="button">
-                <li>
                     <a href="/users/signIn">Sign In</a>
-                </li>
             </button>
             <button type="button">
-                <li>
                     <a href="/users/signUp">Sign Up</a>
-                </li>
             </button>
 
         <% } %>
     </ul>
 
-    <input type="text" placeholder="type here to search">
-    <button><i class="fas fa-search"></i> Search</button>
 </div>

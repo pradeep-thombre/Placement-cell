@@ -7,4 +7,5 @@ router.use('/users',require('./users'));
 router.use('/company',require('./company'));
 router.use('/batch',require('./batch'));
 router.use('/interview',require('./interview'));
+router.use('/student',require('./student'));
 module.exports = router;

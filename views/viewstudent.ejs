@@ -1,0 +1,19 @@
+<h1>Students</h1>
+
+<div class="flex">
+    <%for(let student of students){%>
+        <div class="item">
+            <h2><%= student.name %></h1>
+            <% if(student.status=='Placed'){%>
+                <h3 style="color: rgb(31, 214, 31);"><%=student.status%></h3>
+            <%}else{%>
+                <h3 style="color: rgb(214, 31, 31);"><%=student.status%></h3>
+            <%}%>
+            <p>Email- <%= student.email %></p>
+            <p>Batch- <%= student.batch %></p>
+            <p>Data Structures & Algorithm- <%= student.dsa %>%</p>
+            <p>Web Development- <%= student.web %>%</p>
+            <p>React- <%= student.react %>%</p>
+        </div>
+    <%}%>
+</div>
