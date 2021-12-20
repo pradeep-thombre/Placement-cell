@@ -4,38 +4,36 @@
     
     <h1 id="pagetitle">Placement Cell</h1> 
 
-    
-    <i class="fas fa-home"></i>
-    <i class="fab fa-battle-net"></i>
+    <a href="/"><i class="fas fa-home"></i></a>
+    <i class="fas fa-battle-net"></i>
     <i class="fas fa-bell"></i>
     <ul>
-        <!-- <% if (locals.user){ %> -->
+        <% if (_locals.user){ %>
             <li>
                 <button type="button">
-                    <a href="/user/profile">
-                        <%= user.name %>
+                    <a href="/users/profile">
+                        <%= _locals.user.name %>
                     </a>
                 </button>
             </li>
             <li>
                 <button type="button">
-                    <a href="/user/signOut">Sign Out</a>
+                    <a href="/users/signOut">Sign Out</a>
                 </button>
             </li>
-        <!-- <% }else{ %> -->
+        <% }else{ %>
             <button type="button">
                 <li>
-                    <a href="/user/signIn">Sign In</a>
+                    <a href="/users/signIn">Sign In</a>
                 </li>
             </button>
             <button type="button">
                 <li>
-                    <a href="/user/signUp">Sign Up</a>
+                    <a href="/users/signUp">Sign Up</a>
                 </li>
             </button>
 
-
-        <!-- <% } %> -->
+        <% } %>
     </ul>
 
     <input type="text" placeholder="type here to search">
