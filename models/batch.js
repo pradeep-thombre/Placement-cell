@@ -1,5 +1,5 @@
 const mongoose=require('mongoose');
-
+const { Schema } = require("mongoose");
 const batchSchema=new mongoose.Schema({
     
     name:{
@@ -10,7 +10,13 @@ const batchSchema=new mongoose.Schema({
     cordinator:{
         type:String,
         required:true,
-    }
+    },
+    students: [
+        {
+          type: Schema.Types.ObjectId,
+          ref: "Student"
+        },
+      ]
     
 },{
     timestamps:true

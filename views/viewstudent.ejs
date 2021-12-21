@@ -4,16 +4,28 @@
     <%for(let student of students){%>
         <div class="item">
             <h2><%= student.name %></h1>
-            <% if(student.status=='Placed'){%>
-                <h3 style="color: rgb(31, 214, 31);"><%=student.status%></h3>
-            <%}else{%>
-                <h3 style="color: rgb(214, 31, 31);"><%=student.status%></h3>
-            <%}%>
             <p>Email- <%= student.email %></p>
-            <p>Batch- <%= student.batch %></p>
+            <p>Batch- <%= student.batch.name %></p>
             <p>Data Structures & Algorithm- <%= student.dsa %>%</p>
             <p>Web Development- <%= student.web %>%</p>
             <p>React- <%= student.react %>%</p>
+            
+            <% if(student.status=='Placed'){%>
+                <h3 style="color: rgb(31, 214, 31);"><%=student.status%></h3>
+                <img class="submit" src="https://cdn4.iconfinder.com/data/icons/seo-web-29/24/Badge-512.png" alt="">
+            <%}else{%>
+                <h3 style="color: rgb(250, 190, 100);"><%=student.status%></h3>
+                <form class="updateform" action="/student/update" method="post">
+                    <input type="hidden" name="id" value="<%=student.id%>">
+                    <select class="green" id="select-status" name="status" onchange="this.form.submit()">
+                        <option  selected="" disabled>Change Status</option>
+                      <option value="Placed">Placed</option>
+                      <option value="Not Placed">Not placed</option>
+                      <option value="Status Unknown">Status Unknown</option>
+                  </select>
+                </form>
+            <%}%>
+
         </div>
     <%}%>
 </div>

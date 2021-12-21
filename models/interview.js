@@ -1,5 +1,5 @@
 const mongoose=require('mongoose');
-
+const { Schema } = require("mongoose");
 const interviewSchema=new mongoose.Schema({
     
     role:{
@@ -7,18 +7,21 @@ const interviewSchema=new mongoose.Schema({
         required:true,
     },
     student:{
-        type:String,
-        required:true,
+        type: Schema.Types.ObjectId,
+        ref: "Student"
     },
     company:{
-        type:String,
-        required:true,
+        type: Schema.Types.ObjectId,
+        ref: "Company"
     },
     date:{
         type:Date,
         required:true,
+    },
+    result:{
+        type:String,
+        required:true
     }
-    
 },{
     timestamps:true
 });

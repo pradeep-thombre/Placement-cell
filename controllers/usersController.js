@@ -1,4 +1,6 @@
 const User = require('../models/users');
+const Batch = require('../models/batch');
+const mailer = require('../mailers/mailerController');
 
 module.exports.signIn= function(req,res){
     if(req.isAuthenticated()){
@@ -22,14 +24,11 @@ module.exports.profile =async function(req, res){
         return res.redirect('/users/signIn');
     }
     try{
-        let user=await User.findById(req.params.id);
         req.flash('success','Redirecting to Profile ...');
-        return res.render('profile', {
-            title: 'User Profile',
-            user:user
-        });
+        return res.render('profile');
     }
     catch(err){
+        console.log("Errr",err);
         return res.redirect('back');
     }
 }
@@ -45,8 +44,12 @@ module.exports.create =async function(req, res){
     try{
         let user=await User.findOne({email: req.body.email});
         if (!user){
-            User.create(req.body);
+            let user=await User.create(req.body);
             req.flash('User Created successfully!');
+
+            // user = await user.populate('batch', 'name cordinator');
+            mailer.userAdd(user);
+
             return res.redirect('/users/signIn');
         }else{
             req.flash('User Already Exists!');
@@ -70,5 +73,5 @@ module.exports.destroySession = function(req, res){
     
     req.logout();
     req.flash('success','You are Logged out Successfully');
-    return res.redirect('/users/signIn');
+    return res.redirect('/');
 }

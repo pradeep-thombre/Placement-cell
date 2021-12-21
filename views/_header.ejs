@@ -5,23 +5,26 @@
     <img src="/images/logo.png" alt="">
     <h1 id="pagetitle">Placement Cell</h1> 
         <% if (_locals.user){ %>
-                <button type="button">
+                <button type="button" class="auth">
                     <a href="/users/profile">
                         <%= _locals.user.name %>
                     </a>
                 </button>
-                <button type="button">
+                <button type="button" class="auth">
                     <a href="/users/signOut">Sign Out</a>
                 </button>
         <% }else{ %>
-            <button type="button">
+            <button type="button" class="auth">
                     <a href="/users/signIn">Sign In</a>
             </button>
-            <button type="button">
+            <button type="button" class="auth">
                     <a href="/users/signUp">Sign Up</a>
             </button>
 
         <% } %>
     </ul>
+
+    
+    
 
 </div>

@@ -7,5 +7,6 @@ const studentController=require('../controllers/studentController')
 router.get("/add",studentController.add);
 router.get("/view",studentController.view);
 router.post("/create",studentController.create);
+router.post("/update",studentController.update);
 // export router module
 module.exports = router;

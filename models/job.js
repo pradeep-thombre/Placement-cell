@@ -1,36 +1,34 @@
 const mongoose=require('mongoose');
-const { Schema } = require("mongoose");
-const studentSchema=new mongoose.Schema({
-    
-    name:{
+const jobSchema=new mongoose.Schema({
+    role:{
         type:String,
         required:true,
     },
-    college:{
+    company:{
         type:String,
         required:true,
     },
-    status:{
+    ctc:{
         type:String,
         required:true,
     },
-    batch:{
-        type: Schema.Types.ObjectId,
-        ref: "Batch"
-    },
-    email:{
+    skills:{
         type:String,
         required:true,
     },
-    dsa:{
+    yop:{
         type:String,
         required:true,
     },
-    web:{
+    jd:{
         type:String,
         required:true,
     },
-    react:{
+    exp:{
+        type:String,
+        required:true,
+    },
+    link:{
         type:String,
         required:true,
     }
@@ -40,5 +38,5 @@ const studentSchema=new mongoose.Schema({
 });
 
 
-const Student = mongoose.model('Student', studentSchema);
-module.exports = Student;
+const Job = mongoose.model('Job', jobSchema);
+module.exports = Job;
