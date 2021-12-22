@@ -2,15 +2,12 @@
 
 <div class="flex"  >
     <%for(let job of jobs){%>
-        <div class="item" style="width: 450px;">
+        <div class="item">
             <h2><%= job.role %></h1>
             <p><%= job.company %></p>
-            <p>Job Description- <%= job.jd %></p>
-            <p>Batch- <%= job.yop %></p>
-            <p>Skills- <%= job.skills %></p>
-            <p>Salary Offered(CTC)- <%= job.ctc %></p>
-            <p>Experience- <%= job.exp %></p>
+            <p>Salary- <%= job.ctc %></p>
             <a href="<%= job.link %>"><button value="scheduleInterview" class="submit">Apply</button></a>
+            <a href="/job/details/<%= job.id %>">More Details</a>
         </div>
     <%}%>
 </div>

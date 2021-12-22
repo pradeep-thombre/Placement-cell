@@ -33,7 +33,12 @@ const studentSchema=new mongoose.Schema({
     react:{
         type:String,
         required:true,
-    }
+    },
+    interviews: [
+        {
+          type: Object
+        },
+      ]
     
 },{
     timestamps:true

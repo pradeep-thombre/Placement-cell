@@ -1,7 +1,9 @@
 const express = require('express');
 const cookieParser = require('cookie-parser');
 const app = express();
-const port = 8000;
+// const port = 8000;
+const port = process.env.PORT||8000;
+// p6nZMJFA"g_),N_
 const expressLayouts = require('express-ejs-layouts');
 const db = require('./config/mongoose');
 const passportGoogle=require('./config/passport-google-auth2-strategy');
@@ -53,7 +55,7 @@ app.use(session({
         maxAge: (1000 * 60 * 100)
     },
     store: MongoDbStore.create({
-        mongoUrl: 'mongodb://localhost/placement-cell',
+        mongoUrl: 'mongodb+srv://learningdemo068:HCsRDfy2vDs2KxN2@cluster0.ov31r.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',
         mongooseConnection:db,
         autoRemove: 'disabled'
     },function(err){

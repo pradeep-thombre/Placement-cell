@@ -12,7 +12,6 @@ body{
 #pagetitle{
     margin: auto;
     padding-top: 30px;
-    width: 70%;
     display: inline-block;
     vertical-align: top;
     font-family: monospace;
@@ -169,3 +168,52 @@ p{
     background-color: rgb(0 50 110 / 77%);
     padding: 10px;
 }
+
+.rightshift{
+    float: right;
+    margin-top: 30px;
+    margin-right: 10px;
+}
+
+
+
+
+
+
+
+
+@media only screen and (max-width:700px){
+    #pagetitle{
+        padding-top: 30px;
+        font-size: 22px;
+        letter-spacing: 1px;
+    }
+    img{
+        height: 30px;
+        width: 30px;
+        margin: 20px 20px 5px;
+    }
+    
+    input,select,textarea {
+        border-radius: 12px;
+        font-size: small;
+        padding: 2px 10px;
+        margin-top: 7px;
+
+    }
+
+    button{
+        padding: 2px 5px;
+        font-size: 10px;
+    }
+    .rightshift{
+        margin-top: 25px;
+        margin-right: 5px;
+    }
+    
+    
+
+
+}
+
+/* mongodb+srv://learningdemo068:<password>@cluster0.ov31r.mongodb.net/myFirstDatabase?retryWrites=true&w=majority */

@@ -29,4 +29,14 @@ module.exports.view=async function(req,res){
         req.flash('error','Some Error Occured');
     }
 }
+module.exports.details=async function(req,res){
+    try{
+        let job= await Job.findById(req.params.id);
+        return res.render('jobdetails',{
+            job:job
+        });
+    }catch(err){
+        req.flash('error','Some Error Occured');
+    }
+}
 

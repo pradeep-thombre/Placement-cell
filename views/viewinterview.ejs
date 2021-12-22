@@ -16,6 +16,7 @@
             <%}%>
             <form class="updateform" action="/interview/update" method="post">
                 <input type="hidden" name="id" value="<%=interview.id%>">
+                <input type="hidden" name="student" value="<%= interview.student.id%>">
                 <select class="green" id="select-status" name="result" onchange="this.form.submit()">
                     <option  selected="" disabled>Change Status</option>
                     <option value="Selected">Selected</option>
