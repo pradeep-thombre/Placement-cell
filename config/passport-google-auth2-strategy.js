@@ -6,9 +6,9 @@ const User=require('../models/users');
 
 //tell passport to use new sta=rategy
 passport.use(new googleStrategy({
-    clientID:'184330036444-i88lnkdp985v6sppmhnpb21p9pnjl8ot.apps.googleusercontent.com',
-    clientSecret:'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',
-    callbackURL:"http://localhost:8000/user/auth/google/callback"
+    clientID:'1071472878165-dvj60v3qrs1gqrj8cppp6foia0qmnbmg.apps.googleusercontent.com',
+    clientSecret:'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',
+    callbackURL:"https://ninja-placement-cell.herokuapp.com:8000/users/auth/google/callback"
     },
     function(accessToken,refreshToken,profile,done){
         User.findOne({email:profile.emails[0].value}).exec(function(err,user){
