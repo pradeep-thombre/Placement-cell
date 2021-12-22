@@ -1,10 +1,3 @@
 S.No,Name of Student,Batch,Batch Co-ordinator,College,Placement Status,DSA Score,Web Score,React Score,Interview1,Result1,Interview2,Result2,Interview3,Result3
-1,Padiee,March 2021,Lavanya,Sanjivani college of Engineering Kopargaon,Placed,90,95,75
-2,P. Thombre,March 2021,Lavanya,SCOE,Status Unknown,40,45,45
-3,Dibya,Jan 2021,Sagar,Govt college orrisa,Placed,90,97,99
-4,Toke,DEC 2021,Toke,Sanjivani college of Engineering Kopargaon,Placed,65,70,45
-5,Pradeep Thombre,FEB 2021,Dhanush,Sanjivani college of Engineering Kopargaon,Placed,98,97,99,GURUJI(Sat Dec 25 2021 20:30:00  (IST)),Selected,Nagarro(Sun Dec 05 2021 20:23:00  (IST)),Selected
-6,Sameer Sayyed,FEB 2021,Dhanush,Sanjivani college of Engineering Kopargaon,Placed,98,97,99
-7,Gaurav Mehara,FEB 2021,Dhanush,Maharaja Agrasen College Delhi,Placed,98,97,99
-8,Dibyamohan,FEB 2021,Dhanush,IIT Chennai,Placed,98,97,99
-9,Kunal Sharma,FEB 2021,Dhanush,Indira Gandhi National Open University,Not Placed,96,99,31,PKWARE(Sat Dec 25 2021 12:30:00  (IST)),Interview Scheduled
+1,Pradeep Thombre,FEB 2021,Sagar,Sanjivani college of Engineering Kopargaon,Placed,98,97,99
+2,Sameer Sayyed,FEB 2021,Sagar,Sanjivani college of Engineering Kopargaon,Placed,98,97,99
