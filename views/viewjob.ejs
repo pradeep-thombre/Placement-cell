@@ -7,7 +7,7 @@
             <p><%= job.company %></p>
             <p>Salary- <%= job.ctc %></p>
             <a href="<%= job.link %>"><button value="scheduleInterview" class="submit">Apply</button></a>
-            <a href="/job/details/<%= job.id %>">More Details</a>
+            <a id="morejd" href="/job/details/<%= job.id %>">More Details</a>
         </div>
     <%}%>
 </div>

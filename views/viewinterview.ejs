@@ -8,7 +8,7 @@
             <h1><%= interview.role %></h1>
             <p><%= interview.student.name %></p>
             <p><%= interview.company.name %></p>
-            <p><%= interview.date.toString().replace("GMT+0530","").replace("India Standard Time","IST") %></p>
+            <p><%= interview.date.toString().split("GMT")[0] %></p>
             <% if(interview.result=="Rejected"){%>
                 <h3 style="color: rgb(255, 0, 0);"><%=interview.result%></h3>
             <%}else{%>
