@@ -1,10 +1,14 @@
 
-
-<div id="header-body" style="border-bottom: 1px solid white ; box-shadow:  0 0 2px 2px rgba(236, 239, 243, 0.57);">
-    
+<!-- headers data  -->
+<div id="header-body">
+    <!-- application logo  -->
     <img src="/images/logo.png" alt="">
+
+    <!-- title  -->
     <h1 id="pagetitle">Placement Cell</h1> 
-        <% if (_locals.user){ %>
+
+    <!-- if user is logged in show signout and profile buttons -->
+    <% if (_locals.user){ %>
                 <button type="button" class="auth rightshift username">
                     <a href="/users/profile">
                         <%= _locals.user.name %>
@@ -13,7 +17,8 @@
                 <button type="button" class="auth rightshift ">
                     <a href="/users/signOut">Sign Out</a>
                 </button>
-        <% }else{ %>
+    <% }else{ %>
+        <!-- if users not logged in shown signin Signup buttons -->
             <button type="button" class="auth rightshift">
                     <a href="/users/signIn">Sign In</a>
             </button>
@@ -21,8 +26,7 @@
                     <a href="/users/signUp">Sign Up</a>
             </button>
 
-        <% } %>
-    </ul>
+    <% } %>
 
     
     

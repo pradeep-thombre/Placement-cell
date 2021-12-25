@@ -265,6 +265,11 @@ p{
     }
 }
 
+#header-body{
+    border-bottom: 1px solid white ; 
+    box-shadow:  0 0 2px 2px rgba(236, 239, 243, 0.57);
+}
+
 
 
 @media only screen and (max-width:470px){

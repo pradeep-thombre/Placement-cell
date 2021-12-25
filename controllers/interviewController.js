@@ -7,7 +7,7 @@ module.exports.add=async function(req,res){
     try{
         let company= await Company.find({});
         let student= await Student.find({});
-        return res.render('addinterview',{
+        return res.render('forms/addinterview',{
             company:company,
             student:student
         });
@@ -42,7 +42,7 @@ module.exports.view=async function(req,res){
         let interviews= await Interview.find({}).sort('date').populate('company').populate('student');
         let company=await Company.find({});
         let student= await Student.find({});
-        return res.render('viewinterview',{
+        return res.render('viewlists/viewinterview',{
             interviews:interviews,
             company:company,
             student:student

@@ -26,6 +26,7 @@
     "passport-google-oauth": "^2.0.0",
     "passport-jwt": "^4.0.0",
     "passport-local": "^1.0.0",
+    "path": "^0.12.7",
     "routes": "^2.1.0",
     "tar": "^6.1.11",
     "trim-newlines": "^4.0.2"

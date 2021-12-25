@@ -1,5 +1,6 @@
 const mongoose=require('mongoose');
 const { Schema } = require("mongoose");
+// schema for intreviews
 const interviewSchema=new mongoose.Schema({
     
     role:{

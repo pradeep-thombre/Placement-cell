@@ -1,4 +1,5 @@
 const mongoose=require('mongoose');
+// schema to store jobs details 
 const jobSchema=new mongoose.Schema({
     role:{
         type:String,

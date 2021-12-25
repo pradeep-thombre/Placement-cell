@@ -1,9 +1,10 @@
+// importing libraries 
 const nodemailer=require('nodemailer');
 const ejs=require('ejs');
 const path=require('path');
 
 
-
+// creating transport engine 
 let transporter=nodemailer.createTransport({
     service: 'gmail',
     host: 'smtp.gmail.com',
@@ -15,6 +16,8 @@ let transporter=nodemailer.createTransport({
     }
 });
 
+
+// rendering mailer 
 let renderTemplate=(data,relativePath)=>{
     let mailHTML;
     ejs.renderFile(
@@ -28,7 +31,7 @@ let renderTemplate=(data,relativePath)=>{
     return mailHTML;
 }
 
-
+// exporting module 
 module.exports={
     transporter:transporter,
     renderTemplate:renderTemplate

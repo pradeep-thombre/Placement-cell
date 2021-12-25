@@ -1,12 +1,7 @@
 const User = require('../models/users');
 
 module.exports.home= async function (req,res){
-    // if(req.isAuthenticated()){
-    //     return res.redirect('/users/profile');
-    // }
-    // return res.render('home',{
-    //     title:'Placement Cell'
-    // });
+    
 
     try{
         let user=await User.find({});

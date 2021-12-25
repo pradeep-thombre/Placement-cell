@@ -17,11 +17,13 @@ module.exports.allStudent = async function (req, res) {
     let fileData = "S.No,Name of Student,Batch,Batch Co-ordinator,College,Placement Status,DSA Score,Web Score,React Score,"
     +"Interview1,Result1,Interview2,Result2,Interview3,Result3"
     for(let student of students){
+        // adding each student details to entry according to row 
         entry = serialNumber+","+student.name+","+student.batch.name+","+student.batch.cordinator+","+student.college.replace(",","")
         +","+student.status+","+student.dsa+","+student.web+","+student.react;
         if(student.interviews){
+          // andding students interview details and finally adding to filedata 
           for(let item of student.interviews){
-            entry+=","+item.company+"("+item.date.toString().replace("GMT+0530","").replace("India Standard Time","IST")+"),"+item.result
+            entry+=","+item.company+"("+item.date.toString().split("GMT")[0]+"),"+item.result
           }
         }
         serialNumber++;

@@ -1,5 +1,6 @@
 const mongoose=require('mongoose');
 const { Schema } = require("mongoose");
+// schema for batch it includes all the batches and students registred batch
 const batchSchema=new mongoose.Schema({
     
     name:{

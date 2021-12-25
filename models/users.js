@@ -1,5 +1,6 @@
 const mongoose=require('mongoose');
 
+// schema to store all users 
 const userSchema=new mongoose.Schema({
     email:{
         type:String,

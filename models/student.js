@@ -1,5 +1,7 @@
 const mongoose=require('mongoose');
 const { Schema } = require("mongoose");
+
+// schema to store students details 
 const studentSchema=new mongoose.Schema({
     
     name:{

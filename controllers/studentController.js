@@ -4,7 +4,7 @@ const mailer = require('../mailers/mailerController');
 module.exports.add=async function(req,res){
     try{
         let batches= await Batch.find({});
-        return res.render('addstudent',{
+        return res.render('forms/addstudent',{
             batches:batches
         });
     }catch(err){
@@ -30,7 +30,7 @@ module.exports.view=async function(req,res){
     try{
         let students= await Student.find({}).populate('batch');
         let batch=await Batch.find({});
-        return res.render('viewstudent',{
+        return res.render('viewlists/viewstudent',{
             students:students,
             batch:batch
         });

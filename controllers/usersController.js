@@ -1,16 +1,21 @@
+// importing libraries and files 
 const User = require('../models/users');
 const Batch = require('../models/batch');
 const mailer = require('../mailers/mailerController');
 
+// signIn action 
 module.exports.signIn= function(req,res){
+    // if user is authenticated redirecting to  home page 
     if(req.isAuthenticated()){
         return res.redirect('/');
     }
+    // renddr signIn page if user is not logged in 
     return res.render('signIn');
 }
 
+// not registered redirecting to signUp page 
 module.exports.signUp= function(req,res){
-
+    // user is authenticated redicting to home page 
     if(req.isAuthenticated()){
         return res.redirect('/');
     }
@@ -18,11 +23,14 @@ module.exports.signUp= function(req,res){
     return res.render('signUp');
 }
 
+// handling show profile action 
 module.exports.profile =async function(req, res){
+    // if user is not logged in redirecting to sign In page 
     if(! req.isAuthenticated()){
         req.flash('success','User Not Logged-In Redirecting to login ...');
         return res.redirect('/users/signIn');
     }
+    
     try{
         req.flash('success','Redirecting to Profile ...');
         return res.render('profile');

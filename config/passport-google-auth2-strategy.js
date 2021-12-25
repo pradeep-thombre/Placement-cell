@@ -4,8 +4,9 @@ const googleStrategy=require('passport-google-oauth').OAuth2Strategy;
 const crypto=require('crypto');
 const User=require('../models/users');
 
-//tell passport to use new sta=rategy
+//tell passport to use new starategy
 passport.use(new googleStrategy({
+    // client secrets and client id 
     clientID:'1071472878165-dvj60v3qrs1gqrj8cppp6foia0qmnbmg.apps.googleusercontent.com',
     clientSecret:'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',
     callbackURL:"https://ninja-placement-cell.herokuapp.com:8000/users/auth/google/callback"

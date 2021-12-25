@@ -1,6 +1,8 @@
 const nodemailer=require('../config/nodemailer');
 
+// user add function gets called when new user has signed up 
 exports.userAdd=(user)=>{
+
     let htmlString=nodemailer.renderTemplate({user:user},'/userAdd.ejs');
     nodemailer.transporter.sendMail({
         from:'learningdemo068@gmail.com',
@@ -16,7 +18,8 @@ exports.userAdd=(user)=>{
         return;
     });
 }
-
+// this function gets called when student data is added 
+// this will send remainder to the registered mail id 
 exports.studentAdd=(user)=>{
     let htmlString=nodemailer.renderTemplate({user:user},'/studentAdd.ejs');
     nodemailer.transporter.sendMail({
@@ -34,7 +37,7 @@ exports.studentAdd=(user)=>{
     });
 }
 
-
+// this function gets called when we scheduled an  interview 
 exports.interviewAdd=(interview,company)=>{
     let htmlString=nodemailer.renderTemplate({interview:interview,company:company},'/interviewAdd.ejs');
     nodemailer.transporter.sendMail({

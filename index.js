@@ -1,9 +1,10 @@
+// importing libraries and files 
 const express = require('express');
 const cookieParser = require('cookie-parser');
 const app = express();
 // const port = 8000;
 const port = process.env.PORT||8000;
-// p6nZMJFA"g_),N_
+
 const expressLayouts = require('express-ejs-layouts');
 const db = require('./config/mongoose');
 const passportGoogle=require('./config/passport-google-auth2-strategy');
@@ -16,6 +17,8 @@ const passportJWT=require('./config/passport-jwt-strategy');
 const MongoDbStore = require('connect-mongo');
 var sassMiddleware = require('node-sass-middleware');
 const flash=require('connect-flash');
+
+// middle ware for flash notifications 
 const middleware=require('./config/middleware');
 app.use(sassMiddleware({
     /* Options */
@@ -27,7 +30,7 @@ app.use(sassMiddleware({
 }));
 app.use(express.urlencoded());
 app.use(cookieParser());
-
+// setting static files 
 app.use(express.static('./assets'));
 // app.use('/uploads',express.static(__dirname+'/uploads'));
 
@@ -62,13 +65,15 @@ app.use(session({
         console.log("error ",err);
     })
 }));
-
+// initialising and creating session 
 app.use(passport.initialize());
 app.use(passport.session());
-
 app.use(passport.setAuthenticatedUser);
+
+// adding flash messages
 app.use(flash());
-app.use(middleware.setFlash)
+app.use(middleware.setFlash);
+
 // use express router
 app.use('/', require('./routes'));
 
