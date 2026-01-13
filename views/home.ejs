@@ -1,54 +1,95 @@
-<!-- if users is signed in then show navigation buttons else keep an empty window along with sign in sign up buttons  -->
+<!-- Dashboard for Authenticated Users -->
 <% if (_locals.user){ %>
+    <div class="container" style="text-align: center; padding-top: 1rem;">
+        <h2 style="margin-bottom: 0.5rem;">Welcome back, <%= _locals.user.name %>! 👋</h2>
+        <p style="color: #94a3b8; margin-bottom: 2rem;">What would you like to do today?</p>
+    </div>
+    
     <div class="flex">
-        <!-- create student feature  -->
+        <!-- Create Student -->
         <a href="/student/add">
             <div class="dash">
-                <img class="dashImg" src="https://classroomclipart.com/images/gallery/Animations/General/sleep_6_28.gif" alt="Student Gif">
-                <button class="submit">Create Student</button>
+                <div style="font-size: 3rem; margin-bottom: 1rem;">👨‍🎓</div>
+                <h3 style="margin-bottom: 0.5rem;">Add Student</h3>
+                <p style="font-size: 0.875rem; color: #94a3b8;">Register new students to the placement cell</p>
+                <button class="submit" style="margin-top: 1rem;">Create Student</button>
             </div>
         </a>
-        <!-- craete interview feature  -->
+
+        <!-- Schedule Interview -->
         <a href="/interview/add">
             <div class="dash">
-                <img class="dashImg" src="https://cdn.dribbble.com/users/2054054/screenshots/6257329/interview.gif" alt="interview Gif">
-                <button class="submit">Schedule Interview</button>
+                <div style="font-size: 3rem; margin-bottom: 1rem;">📅</div>
+                <h3 style="margin-bottom: 0.5rem;">Schedule Interview</h3>
+                <p style="font-size: 0.875rem; color: #94a3b8;">Arrange interviews between students and companies</p>
+                <button class="submit" style="margin-top: 1rem;">Schedule Interview</button>
             </div>
         </a>
-        <!-- post jopb feature  -->
+
+        <!-- Post Job -->
         <a href="/job/add">
             <div class="dash">
-                <img class="dashImg" src="https://gifimage.net/wp-content/uploads/2017/10/business-gif-10.gif" alt="Job Gif">
-                <button class="submit">Post Job</button>
+                <div style="font-size: 3rem; margin-bottom: 1rem;">💼</div>
+                <h3 style="margin-bottom: 0.5rem;">Post Job</h3>
+                <p style="font-size: 0.875rem; color: #94a3b8;">Add new job opportunities for students</p>
+                <button class="submit" style="margin-top: 1rem;">Post Job</button>
             </div>
         </a>
-        <!-- create batch feature  -->
+
+        <!-- Create Batch -->
         <a href="/batch/add">
             <div class="dash">
-                <img class="dashImg" src="https://cdn.dribbble.com/users/753807/screenshots/5415673/people.gif" onerror="this.onerror=null; this.src='/images/batch.jpg'" alt="Batch Gif">
-                <button class="submit">Create Batch</button>
+                <div style="font-size: 3rem; margin-bottom: 1rem;">👥</div>
+                <h3 style="margin-bottom: 0.5rem;">Create Batch</h3>
+                <p style="font-size: 0.875rem; color: #94a3b8;">Organize students into batches</p>
+                <button class="submit" style="margin-top: 1rem;">Create Batch</button>
             </div>
         </a>
-        <!-- create company  -->
+
+        <!-- Add Company -->
         <a href="/company/add">
             <div class="dash">
-                <img class="dashImg" src="https://www.brunswickgroup.com/media/6239/customer_focused_gif_final.gif" alt="Company Gif">
-                <button class="submit">Create Company</button>
+                <div style="font-size: 3rem; margin-bottom: 1rem;">🏢</div>
+                <h3 style="margin-bottom: 0.5rem;">Add Company</h3>
+                <p style="font-size: 0.875rem; color: #94a3b8;">Register recruiting companies</p>
+                <button class="submit" style="margin-top: 1rem;">Create Company</button>
             </div>
         </a>
-            
     </div>
-<% }else{ %>
-    <!-- if user is not logged show them sign in sign up buttons  -->
-    <h1 style="letter-spacing: 5px;">Welcome to  Placement Cell!!!</h1>
-    <br><br>
-    <p>Please Login to Proceed further</p>
-    <button type="button" class="submit">
-            <a href="/users/signIn">Sign In</a>
-    </button>
-    <button type="button" class="submit">
-            <a href="/users/signUp">Sign Up</a>
-    </button>
-    
-    <!-- <a href="/users/auth/google"><button class="submit"><i class="fab fa-google-plus-g"></i>Google SinIn/Sign Up</button></a> -->
+
+<% } else { %>
+    <!-- Welcome Section for Non-Authenticated Users -->
+    <div class="welcome-section">
+        <div style="font-size: 4rem; margin-bottom: 1.5rem;">🎓</div>
+        <h1>Welcome to Placement Cell</h1>
+        <p>Your one-stop platform for managing student placements, scheduling interviews, and tracking career opportunities.</p>
+        
+        <div class="btn-group" style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+            <a href="/users/signIn">
+                <button class="submit" style="width: auto; padding: 0.875rem 2rem;">
+                    <i class="fas fa-sign-in-alt"></i>&nbsp; Sign In
+                </button>
+            </a>
+            <a href="/users/signUp">
+                <button class="btn-secondary submit" style="width: auto; padding: 0.875rem 2rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(148,163,184,0.2);">
+                    <i class="fas fa-user-plus"></i>&nbsp; Create Account
+                </button>
+            </a>
+        </div>
+        
+        <div style="margin-top: 3rem; display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap; color: #64748b;">
+            <div style="text-align: center;">
+                <div style="font-size: 1.5rem;">📊</div>
+                <small>Track Progress</small>
+            </div>
+            <div style="text-align: center;">
+                <div style="font-size: 1.5rem;">📧</div>
+                <small>Email Notifications</small>
+            </div>
+            <div style="text-align: center;">
+                <div style="font-size: 1.5rem;">📁</div>
+                <small>Export Data</small>
+            </div>
+        </div>
+    </div>
 <% } %>

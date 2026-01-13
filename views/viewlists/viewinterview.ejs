@@ -1,30 +1,64 @@
-<h1>Scheduled Interviews</h1>
+<!-- Interviews List Header -->
+<div class="container" style="text-align: center; padding-top: 1rem;">
+    <h1><i class="fas fa-calendar-check"></i>&nbsp; Scheduled Interviews</h1>
+    <p style="color: #94a3b8;">Track and manage all interview schedules</p>
+    <a href="/interview/add" style="display: inline-block; margin-top: 1rem;">
+        <button><i class="fas fa-plus"></i>&nbsp; Schedule Interview</button>
+    </a>
+</div>
 
-
-<!-- ist of schedules interviews along with details and option to edit status  -->
+<!-- Interviews Grid -->
 <div class="flex">
-    <%for(let interview of interviews){%>
-        <div class="item">
-            <h1><%= interview.role %></h1>
-            <p><%= interview.student.name %></p>
-            <p><%= interview.company.name %></p>
-            <p><%= interview.date.toString().split("GMT")[0] %></p>
-            <% if(interview.result=="Rejected"){%>
-                <h3 style="color: rgb(255, 0, 0);"><%=interview.result%></h3>
-            <%}else{%>
-                <h3 style="color: rgb(83, 255, 41);"><%=interview.result%></h3>
-            <%}%>
-            <form class="updateform" action="/interview/update" method="post">
-                <input type="hidden" name="id" value="<%=interview.id%>">
-                <input type="hidden" name="student" value="<%= interview.student.id%>">
-                <select class="green" id="select-status" name="result" onchange="this.form.submit()">
-                    <option  selected="" disabled>Change Status</option>
-                    <option value="Selected">Selected</option>
-                    <option value="Rejected">Rejected</option>
-                    <option value="Status Pending">Status Pending</option>
-                    <option value="Interview Scheduled">Interview Scheduled</option>
-              </select>
-            </form>
+    <% if(interviews && interviews.length > 0) { %>
+        <%for(let interview of interviews){%>
+            <div class="item">
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
+                    <h2 style="margin: 0;"><%= interview.role %></h2>
+                    <% if(interview.result=="Rejected"){%>
+                        <span style="background: rgba(239, 68, 68, 0.15); color: #ef4444; padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.75rem; font-weight: 600;">Rejected</span>
+                    <%} else if(interview.result=="Selected"){%>
+                        <span style="background: rgba(16, 185, 129, 0.15); color: #10b981; padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.75rem; font-weight: 600;">Selected</span>
+                    <%} else {%>
+                        <span style="background: rgba(245, 158, 11, 0.15); color: #f59e0b; padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.75rem; font-weight: 600;"><%= interview.result %></span>
+                    <%}%>
+                </div>
+                
+                <div style="background: rgba(15, 23, 42, 0.4); border-radius: 12px; padding: 1rem; margin-bottom: 1rem;">
+                    <p style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+                        <i class="fas fa-user" style="color: #64748b;"></i>
+                        <span><%= interview.student.name %></span>
+                    </p>
+                    <p style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+                        <i class="fas fa-building" style="color: #64748b;"></i>
+                        <span><%= interview.company.name %></span>
+                    </p>
+                    <p style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0;">
+                        <i class="fas fa-calendar" style="color: #64748b;"></i>
+                        <span><%= interview.date.toString().split("GMT")[0] %></span>
+                    </p>
+                </div>
+                
+                <form class="updateform" action="/interview/update" method="post" style="margin: 0; padding: 0;">
+                    <input type="hidden" name="id" value="<%=interview.id%>">
+                    <input type="hidden" name="student" value="<%= interview.student.id%>">
+                    <select name="result" onchange="this.form.submit()" style="margin: 0; padding: 0.5rem 1rem; font-size: 0.875rem;">
+                        <option selected disabled>Update Status</option>
+                        <option value="Selected">✓ Selected</option>
+                        <option value="Rejected">✗ Rejected</option>
+                        <option value="Status Pending">⏳ Status Pending</option>
+                        <option value="Interview Scheduled">📅 Interview Scheduled</option>
+                    </select>
+                </form>
+            </div>
+        <%}%>
+    <% } else { %>
+        <div class="empty-state" style="grid-column: 1 / -1; text-align: center; padding: 4rem 2rem;">
+            <div style="font-size: 4rem; margin-bottom: 1rem; opacity: 0.5;">📅</div>
+            <h3>No Interviews Scheduled</h3>
+            <p style="color: #64748b;">Schedule your first interview</p>
+            <a href="/interview/add">
+                <button style="margin-top: 1rem;"><i class="fas fa-plus"></i>&nbsp; Schedule Interview</button>
+            </a>
         </div>
-    <%}%>
+    <% } %>
 </div>

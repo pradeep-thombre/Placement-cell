@@ -1,15 +1,67 @@
-
-<!-- add jobs form  -->
-<form action="/job/create" method="POST">
-    <h1>Post Job</h1>
-    <input type="text" name="role" placeholder="Role*" required>
-    <input type="text" name="company" placeholder="Company Name*" required>
-    <input type="text" name="ctc" placeholder="Salery Offered(CTC)*" required>
-    <input type="text" name="skills" placeholder="Skills Required*" required>
-    <input type="text" name="yop" placeholder="Year of Passing*" required>
-    <input type="text" name="exp" placeholder="Years of Experience*" required>
-    <input type="text" name="link" placeholder="Application link*" required>
-    <textarea name="jd" id="" cols="30" rows="5" placeholder="Enter Job Description" required></textarea>
-    <button value="scheduleInterview" class="submit">create</button>
-    <a href="/">Back</a>
-</form>
+<!-- Post Job Form -->
+<div class="container" style="min-height: 70vh; display: flex; align-items: flex-start; justify-content: center; padding-top: 2rem;">
+    <div style="width: 100%; max-width: 550px;">
+        <div style="text-align: center; margin-bottom: 1.5rem;">
+            <div style="font-size: 3rem; margin-bottom: 0.5rem;">💼</div>
+            <h2>Post New Job</h2>
+            <p style="color: #94a3b8;">Add a new job opportunity for students</p>
+        </div>
+        
+        <form action="/job/create" method="POST">
+            <div style="display: grid; gap: 1rem;">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                    <div>
+                        <label for="role"><i class="fas fa-briefcase"></i>&nbsp; Role</label>
+                        <input type="text" id="role" name="role" placeholder="e.g. Frontend Developer" required>
+                    </div>
+                    <div>
+                        <label for="company"><i class="fas fa-building"></i>&nbsp; Company</label>
+                        <input type="text" id="company" name="company" placeholder="Company Name" required>
+                    </div>
+                </div>
+                
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                    <div>
+                        <label for="ctc"><i class="fas fa-rupee-sign"></i>&nbsp; Salary (CTC)</label>
+                        <input type="text" id="ctc" name="ctc" placeholder="e.g. 8 LPA" required>
+                    </div>
+                    <div>
+                        <label for="exp"><i class="fas fa-history"></i>&nbsp; Experience</label>
+                        <input type="text" id="exp" name="exp" placeholder="e.g. 0-2 years" required>
+                    </div>
+                </div>
+                
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                    <div>
+                        <label for="skills"><i class="fas fa-tools"></i>&nbsp; Skills Required</label>
+                        <input type="text" id="skills" name="skills" placeholder="e.g. React, Node.js" required>
+                    </div>
+                    <div>
+                        <label for="yop"><i class="fas fa-graduation-cap"></i>&nbsp; Year of Passing</label>
+                        <input type="text" id="yop" name="yop" placeholder="e.g. 2024, 2025" required>
+                    </div>
+                </div>
+                
+                <div>
+                    <label for="link"><i class="fas fa-link"></i>&nbsp; Application Link</label>
+                    <input type="url" id="link" name="link" placeholder="https://careers.company.com/apply" required>
+                </div>
+                
+                <div>
+                    <label for="jd"><i class="fas fa-file-alt"></i>&nbsp; Job Description</label>
+                    <textarea id="jd" name="jd" rows="5" placeholder="Enter detailed job description, responsibilities, and requirements..." required></textarea>
+                </div>
+            </div>
+            
+            <button type="submit" class="submit" style="margin-top: 1.5rem;">
+                <i class="fas fa-plus"></i>&nbsp; Post Job
+            </button>
+            
+            <div style="text-align: center; margin-top: 1rem;">
+                <a href="/" style="color: #64748b; font-size: 0.875rem;">
+                    <i class="fas fa-arrow-left"></i>&nbsp; Back to Dashboard
+                </a>
+            </div>
+        </form>
+    </div>
+</div>

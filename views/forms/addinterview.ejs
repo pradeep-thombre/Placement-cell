@@ -1,19 +1,56 @@
-<!-- add interview form  -->
-<form action="/interview/create" method="POST">
-    <h1>Schedule Interview</h1>
-    <input type="text" name="role" placeholder="Role*" required>
-    <select name="student" >
-        <%for(let ninja of student){%>
-            <option value="<%= ninja.id%>"><%= ninja.name %></option>
-        <%}%>
-    </select>
-    <select name="company" >
-        <%for(let org of company){%>
-            <option value="<%= org.id%>"><%= org.name %></option>
-        <%}%>
-    </select>
-    <input type="datetime-local" name="date" placeholder="Interview on*" required>
-    <input type="hidden" name="result" value="Interview Scheduled">
-    <button value="scheduleInterview" class="submit">Schedule</button>
-    <a href="/">Back</a>
-</form>
+<!-- Schedule Interview Form -->
+<div class="container" style="min-height: 70vh; display: flex; align-items: flex-start; justify-content: center; padding-top: 2rem;">
+    <div style="width: 100%; max-width: 500px;">
+        <div style="text-align: center; margin-bottom: 1.5rem;">
+            <div style="font-size: 3rem; margin-bottom: 0.5rem;">📅</div>
+            <h2>Schedule Interview</h2>
+            <p style="color: #94a3b8;">Arrange an interview between student and company</p>
+        </div>
+        
+        <form action="/interview/create" method="POST">
+            <div style="display: grid; gap: 1rem;">
+                <div>
+                    <label for="role"><i class="fas fa-briefcase"></i>&nbsp; Role / Position</label>
+                    <input type="text" id="role" name="role" placeholder="e.g. Software Developer" required>
+                </div>
+                
+                <div>
+                    <label for="student"><i class="fas fa-user-graduate"></i>&nbsp; Select Student</label>
+                    <select name="student" id="student" required>
+                        <option value="" disabled selected>Choose a student</option>
+                        <%for(let ninja of student){%>
+                            <option value="<%= ninja.id%>"><%= ninja.name %></option>
+                        <%}%>
+                    </select>
+                </div>
+                
+                <div>
+                    <label for="company"><i class="fas fa-building"></i>&nbsp; Select Company</label>
+                    <select name="company" id="company" required>
+                        <option value="" disabled selected>Choose a company</option>
+                        <%for(let org of company){%>
+                            <option value="<%= org.id%>"><%= org.name %></option>
+                        <%}%>
+                    </select>
+                </div>
+                
+                <div>
+                    <label for="date"><i class="fas fa-clock"></i>&nbsp; Interview Date & Time</label>
+                    <input type="datetime-local" id="date" name="date" required>
+                </div>
+                
+                <input type="hidden" name="result" value="Interview Scheduled">
+            </div>
+            
+            <button type="submit" class="submit" style="margin-top: 1.5rem;">
+                <i class="fas fa-calendar-check"></i>&nbsp; Schedule Interview
+            </button>
+            
+            <div style="text-align: center; margin-top: 1rem;">
+                <a href="/" style="color: #64748b; font-size: 0.875rem;">
+                    <i class="fas fa-arrow-left"></i>&nbsp; Back to Dashboard
+                </a>
+            </div>
+        </form>
+    </div>
+</div>

@@ -4,12 +4,22 @@ const googleStrategy=require('passport-google-oauth').OAuth2Strategy;
 const crypto=require('crypto');
 const User=require('../models/users');
 
+const clientID = process.env.GOOGLE_CLIENT_ID;
+const clientSecret = process.env.GOOGLE_CLIENT_SECRET;
+const callbackURL = process.env.GOOGLE_CALLBACK_URL;
+
+if (!clientID || !clientSecret || !callbackURL) {
+    // Allow the app to boot locally without Google OAuth configured.
+    module.exports = passport;
+    return;
+}
+
 //tell passport to use new starategy
 passport.use(new googleStrategy({
     // client secrets and client id 
-    clientID:'1071472878165-dvj60v3qrs1gqrj8cppp6foia0qmnbmg.apps.googleusercontent.com',
-    clientSecret:'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',
-    callbackURL:"https://ninja-placement-cell.herokuapp.com:8000/users/auth/google/callback"
+    clientID,
+    clientSecret,
+    callbackURL
     },
     function(accessToken,refreshToken,profile,done){
         User.findOne({email:profile.emails[0].value}).exec(function(err,user){

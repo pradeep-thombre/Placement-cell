@@ -1,12 +1,64 @@
-<div class="flex"  >
-        <div class="item" style="width: 450px;">
-            <h2><%= job.role %></h1>
-            <p><%= job.company %></p>
-            <p>Job Description- <%= job.jd %></p>
-            <p>Batch- <%= job.yop %></p>
-            <p>Skills- <%= job.skills %></p>
-            <p>Salary Offered(CTC)- <%= job.ctc %></p>
-            <p>Experience- <%= job.exp %></p>
-            <a href="<%= job.link %>"><button value="scheduleInterview" class="submit">Apply</button></a>
+<!-- Job Details Page -->
+<div class="container" style="max-width: 700px; margin: 2rem auto; padding: 0 1rem;">
+    <div style="text-align: center; margin-bottom: 2rem;">
+        <a href="/job/view" style="color: #64748b; font-size: 0.875rem;">
+            <i class="fas fa-arrow-left"></i>&nbsp; Back to Jobs
+        </a>
+    </div>
+    
+    <div class="item" style="width: 100%; max-width: none;">
+        <!-- Header -->
+        <div style="display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem;">
+            <div>
+                <h1 style="margin: 0 0 0.5rem 0; text-align: left;"><%= job.role %></h1>
+                <p style="margin: 0; display: flex; align-items: center; gap: 0.5rem; text-align: left;">
+                    <i class="fas fa-building" style="color: #6366f1;"></i>
+                    <span style="font-size: 1.125rem;"><%= job.company %></span>
+                </p>
+            </div>
+            <div style="background: linear-gradient(135deg, #10b981, #059669); padding: 0.5rem 1rem; border-radius: 12px; font-weight: 600; color: white;">
+                💰 <%= job.ctc %>
+            </div>
         </div>
+        
+        <!-- Details Grid -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 1.5rem;">
+            <div style="background: rgba(15, 23, 42, 0.4); border-radius: 12px; padding: 1rem;">
+                <small style="color: #64748b;"><i class="fas fa-graduation-cap"></i>&nbsp; Batch / Year of Passing</small>
+                <p style="margin: 0.5rem 0 0 0; font-weight: 500; text-align: left;"><%= job.yop %></p>
+            </div>
+            <div style="background: rgba(15, 23, 42, 0.4); border-radius: 12px; padding: 1rem;">
+                <small style="color: #64748b;"><i class="fas fa-history"></i>&nbsp; Experience Required</small>
+                <p style="margin: 0.5rem 0 0 0; font-weight: 500; text-align: left;"><%= job.exp %></p>
+            </div>
+        </div>
+        
+        <!-- Skills -->
+        <div style="background: rgba(15, 23, 42, 0.4); border-radius: 12px; padding: 1rem; margin-bottom: 1.5rem;">
+            <small style="color: #64748b;"><i class="fas fa-tools"></i>&nbsp; Skills Required</small>
+            <p style="margin: 0.5rem 0 0 0; text-align: left;"><%= job.skills %></p>
+        </div>
+        
+        <!-- Job Description -->
+        <div style="margin-bottom: 2rem;">
+            <h3 style="text-align: left; margin-bottom: 1rem;"><i class="fas fa-file-alt"></i>&nbsp; Job Description</h3>
+            <div style="background: rgba(15, 23, 42, 0.4); border-radius: 12px; padding: 1.25rem; line-height: 1.8;">
+                <p style="margin: 0; text-align: left; white-space: pre-wrap;"><%= job.jd %></p>
+            </div>
+        </div>
+        
+        <!-- Apply Button -->
+        <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+            <a href="<%= job.link %>" target="_blank" style="flex: 1; min-width: 200px;">
+                <button style="width: 100%; padding: 1rem; font-size: 1rem; background: linear-gradient(135deg, #10b981, #059669);">
+                    <i class="fas fa-external-link-alt"></i>&nbsp; Apply Now
+                </button>
+            </a>
+            <a href="/job/view" style="flex: 1; min-width: 200px;">
+                <button class="btn-secondary" style="width: 100%; padding: 1rem; font-size: 1rem; background: transparent; border: 1px solid rgba(148,163,184,0.3);">
+                    <i class="fas fa-list"></i>&nbsp; View All Jobs
+                </button>
+            </a>
+        </div>
+    </div>
 </div>

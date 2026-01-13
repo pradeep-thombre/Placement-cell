@@ -1,34 +1,29 @@
-
-<!-- headers data  -->
+<!-- Modern Header -->
 <div id="header-body">
-    <!-- application logo  -->
-    <img src="/images/logo.png" alt="">
+    <div class="header-left" style="display: flex; align-items: center; gap: 1rem;">
+        <!-- Application logo -->
+        <img src="/images/logo.png" alt="Placement Cell Logo">
+        <!-- Title -->
+        <h1 id="pagetitle">Placement Cell</h1>
+    </div>
 
-    <!-- title  -->
-    <h1 id="pagetitle">Placement Cell</h1> 
-
-    <!-- if user is logged in show signout and profile buttons -->
-    <% if (_locals.user){ %>
-                <button type="button" class="auth rightshift username">
-                    <a href="/users/profile">
-                        <%= _locals.user.name %>
-                    </a>
-                </button>
-                <button type="button" class="auth rightshift ">
-                    <a href="/users/signOut">Sign Out</a>
-                </button>
-    <% }else{ %>
-        <!-- if users not logged in shown signin Signup buttons -->
-            <button type="button" class="auth rightshift">
-                    <a href="/users/signIn">Sign In</a>
+    <div class="header-right" style="display: flex; align-items: center; gap: 0.75rem;">
+        <% if (_locals.user){ %>
+            <button type="button" class="auth username">
+                <a href="/users/profile">
+                    <i class="fas fa-user"></i>&nbsp; <%= _locals.user.name %>
+                </a>
             </button>
-            <button type="button" class="auth rightshift username">
-                    <a href="/users/signUp">Sign Up</a>
+            <button type="button" class="auth">
+                <a href="/users/signOut"><i class="fas fa-sign-out-alt"></i>&nbsp; Sign Out</a>
             </button>
-
-    <% } %>
-
-    
-    
-
+        <% } else { %>
+            <button type="button" class="auth">
+                <a href="/users/signIn"><i class="fas fa-sign-in-alt"></i>&nbsp; Sign In</a>
+            </button>
+            <button type="button" class="auth username">
+                <a href="/users/signUp"><i class="fas fa-user-plus"></i>&nbsp; Sign Up</a>
+            </button>
+        <% } %>
+    </div>
 </div>

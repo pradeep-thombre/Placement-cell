@@ -1,36 +1,79 @@
-<h1>Students</h1>
+<!-- Students List Header -->
+<div class="container" style="text-align: center; padding-top: 1rem;">
+    <h1><i class="fas fa-user-graduate"></i>&nbsp; Students</h1>
+    <p style="color: #94a3b8;">Manage all registered students</p>
+    <a href="/student/add" style="display: inline-block; margin-top: 1rem;">
+        <button><i class="fas fa-plus"></i>&nbsp; Add New Student</button>
+    </a>
+</div>
 
-<!-- list the details of all student -->
+<!-- Students Grid -->
 <div class="flex">
-    <%for(let student of students){%>
-        <div class="item">
-            <!-- student details  -->
-            <h2><%= student.name %></h1>
-            <p>Email- <%= student.email %></p>
-            <p>Batch- <%= student.batch.name %></p>
-            <p>Data Structures & Algorithm- <%= student.dsa %>%</p>
-            <p>Web Development- <%= student.web %>%</p>
-            <p>React- <%= student.react %>%</p>
-            
-            <!-- id student placed showl placed word in green color and show achivement batch  -->
-            <% if(student.status=='Placed'){%>
-                <h3 style="color: rgb(31, 214, 31);"><%=student.status%></h3>
-                <img class="submit" src="https://cdn4.iconfinder.com/data/icons/seo-web-29/24/Badge-512.png" alt="">
-            <%}else{%>
-
-                <!-- if student is notb placed give option to change the status  -->
-                <h3 style="color: rgb(250, 190, 100);"><%=student.status%></h3>
-                <form class="updateform" action="/student/update" method="post">
-                    <input type="hidden" name="id" value="<%=student.id%>">
-                    <select class="green" id="select-status" name="status" onchange="this.form.submit()">
-                        <option  selected="" disabled>Change Status</option>
-                      <option value="Placed">Placed</option>
-                      <option value="Not Placed">Not placed</option>
-                      <option value="Status Unknown">Status Unknown</option>
-                  </select>
-                </form>
-            <%}%>
-
+    <% if(students && students.length > 0) { %>
+        <%for(let student of students){%>
+            <div class="item">
+                <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                    <div style="width: 50px; height: 50px; border-radius: 50%; background: linear-gradient(135deg, #6366f1, #06b6d4); display: flex; align-items: center; justify-content: center; font-size: 1.25rem; font-weight: 600;">
+                        <%= student.name.charAt(0).toUpperCase() %>
+                    </div>
+                    <div>
+                        <h2 style="margin: 0;"><%= student.name %></h2>
+                        <small style="color: #64748b;"><%= student.batch.name %></small>
+                    </div>
+                </div>
+                
+                <div style="background: rgba(15, 23, 42, 0.4); border-radius: 12px; padding: 1rem; margin-bottom: 1rem;">
+                    <p style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                        <span style="color: #64748b;"><i class="fas fa-envelope"></i>&nbsp; Email</span>
+                        <span><%= student.email %></span>
+                    </p>
+                    <p style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                        <span style="color: #64748b;"><i class="fas fa-code"></i>&nbsp; DSA</span>
+                        <span><%= student.dsa %>%</span>
+                    </p>
+                    <p style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                        <span style="color: #64748b;"><i class="fas fa-globe"></i>&nbsp; Web Dev</span>
+                        <span><%= student.web %>%</span>
+                    </p>
+                    <p style="display: flex; justify-content: space-between; margin-bottom: 0;">
+                        <span style="color: #64748b;"><i class="fab fa-react"></i>&nbsp; React</span>
+                        <span><%= student.react %>%</span>
+                    </p>
+                </div>
+                
+                <% if(student.status=='Placed'){%>
+                    <div style="display: flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1rem; background: rgba(16, 185, 129, 0.15); border-radius: 8px; color: #10b981;">
+                        <i class="fas fa-check-circle"></i>
+                        <span style="font-weight: 600;">Placed</span>
+                        <span style="margin-left: auto;">🏆</span>
+                    </div>
+                <%} else {%>
+                    <div style="padding: 0.5rem 0;">
+                        <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.75rem; color: #f59e0b;">
+                            <i class="fas fa-clock"></i>
+                            <span style="font-weight: 500;"><%= student.status %></span>
+                        </div>
+                        <form class="updateform" action="/student/update" method="post" style="margin: 0; padding: 0;">
+                            <input type="hidden" name="id" value="<%=student.id%>">
+                            <select name="status" onchange="this.form.submit()" style="margin: 0; padding: 0.5rem 1rem; font-size: 0.875rem;">
+                                <option selected disabled>Update Status</option>
+                                <option value="Placed">✓ Placed</option>
+                                <option value="Not Placed">✗ Not Placed</option>
+                                <option value="Status Unknown">? Status Unknown</option>
+                            </select>
+                        </form>
+                    </div>
+                <%}%>
+            </div>
+        <%}%>
+    <% } else { %>
+        <div class="empty-state" style="grid-column: 1 / -1; text-align: center; padding: 4rem 2rem;">
+            <div style="font-size: 4rem; margin-bottom: 1rem; opacity: 0.5;">👨‍🎓</div>
+            <h3>No Students Found</h3>
+            <p style="color: #64748b;">Get started by adding your first student</p>
+            <a href="/student/add">
+                <button style="margin-top: 1rem;"><i class="fas fa-plus"></i>&nbsp; Add Student</button>
+            </a>
         </div>
-    <%}%>
+    <% } %>
 </div>

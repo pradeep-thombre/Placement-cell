@@ -1,12 +1,34 @@
-<h1>Companies Registered</h1>
-
-<!-- view list of all companies with thire descriptions  -->
-<div class="flex">
-    <%for(let company of companies){%>
-        <div class="item">
-            <h1><%= company.name %></h1>
-            <p><%= company.description %></p>
-        </div>
-    <%}%>
+<!-- Companies List Header -->
+<div class="container" style="text-align: center; padding-top: 1rem;">
+    <h1><i class="fas fa-building"></i>&nbsp; Companies</h1>
+    <p style="color: #94a3b8;">Registered recruiting companies</p>
+    <a href="/company/add" style="display: inline-block; margin-top: 1rem;">
+        <button><i class="fas fa-plus"></i>&nbsp; Add Company</button>
+    </a>
 </div>
 
+<!-- Companies Grid -->
+<div class="flex">
+    <% if(companies && companies.length > 0) { %>
+        <%for(let company of companies){%>
+            <div class="item">
+                <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                    <div style="width: 50px; height: 50px; border-radius: 12px; background: linear-gradient(135deg, #6366f1, #8b5cf6); display: flex; align-items: center; justify-content: center; font-size: 1.5rem;">
+                        🏢
+                    </div>
+                    <h2 style="margin: 0;"><%= company.name %></h2>
+                </div>
+                <p style="color: #94a3b8; line-height: 1.6;"><%= company.description %></p>
+            </div>
+        <%}%>
+    <% } else { %>
+        <div class="empty-state" style="grid-column: 1 / -1; text-align: center; padding: 4rem 2rem;">
+            <div style="font-size: 4rem; margin-bottom: 1rem; opacity: 0.5;">🏢</div>
+            <h3>No Companies Registered</h3>
+            <p style="color: #64748b;">Add your first recruiting company</p>
+            <a href="/company/add">
+                <button style="margin-top: 1rem;"><i class="fas fa-plus"></i>&nbsp; Add Company</button>
+            </a>
+        </div>
+    <% } %>
+</div>

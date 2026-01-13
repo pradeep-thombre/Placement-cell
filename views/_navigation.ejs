@@ -1,16 +1,16 @@
-<!-- id user is logged in then show links else show empty box  -->
+<!-- Modern Navigation Bar -->
 <% if (_locals.user){ %>
-    <div id='nav' class='flex' style="margin: 0;">
+    <nav id='nav'>
         <ul>
-            <li><a href="/"><Button><i class="fas fa-home"></i>  Home</Button></a></li>
-            <li><a href="/student/view"><button>Students</button></a></li>
-            <li><a href="/interview/view"><button>Interviews</button></a></li>
-            <li><a href="/batch/view"><button>Batches</button></a></li>
-            <li><a href="/company/view"><button>Companies</button></a></li>
-            <li><a href="/job/view"><button>Jobs</button></a></li>
-            <li><a href="/download"><button>Downloads</button></a></li>
+            <li><a href="/"><button><i class="fas fa-home"></i>&nbsp; Home</button></a></li>
+            <li><a href="/student/view"><button><i class="fas fa-user-graduate"></i>&nbsp; Students</button></a></li>
+            <li><a href="/interview/view"><button><i class="fas fa-calendar-check"></i>&nbsp; Interviews</button></a></li>
+            <li><a href="/batch/view"><button><i class="fas fa-users"></i>&nbsp; Batches</button></a></li>
+            <li><a href="/company/view"><button><i class="fas fa-building"></i>&nbsp; Companies</button></a></li>
+            <li><a href="/job/view"><button><i class="fas fa-briefcase"></i>&nbsp; Jobs</button></a></li>
+            <li><a href="/download"><button><i class="fas fa-download"></i>&nbsp; Downloads</button></a></li>
         </ul>
-    </div>
-<% }else{ %>
-    <div style="min-height: 70px;"></div>
+    </nav>
+<% } else { %>
+    <div style="height: 20px;"></div>
 <% } %>
